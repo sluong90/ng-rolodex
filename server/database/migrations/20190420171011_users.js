@@ -21,7 +21,7 @@ exports.up = function (knex, Promise) {
             table.string('home');
             table.string('email');
             table.string('instagram');
-            // table.integer('created_by').references('user.id')
+            table.integer('created_by').references('user.id')
         })
 };
 

@@ -1,10 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const userRoutes = require('./routes/users');
+// const userRoutes = require('./routes/users');
 const decorator = require('./database/decorator');
 
 // data vars
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 const SESSION_SECRET = process.env.SESSION_SECRET;
 const REDIS_HOSTNAME = process.env.REDIS_HOSTNAME;
 
@@ -21,7 +21,7 @@ app.use(bodyParser.json({ extended: true }));
 app.use(decorator);
 
 // routes
-app.use('/api', userRoutes);
+// app.use('/api', userRoutes);
 app.get('/api/smoke', (req, res) => {
   res.json({ smoke: 'test' });
 });
@@ -30,3 +30,6 @@ app.get('/api/smoke', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server stated on port: ${PORT}`);
 });
+
+
+////psql -h localhost -p 5432 -d ng_rolodex -U admin
