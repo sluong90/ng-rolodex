@@ -1,0 +1,47 @@
+
+ul {
+    margin: 0;
+    padding: 0;
+    float: right;
+  }
+  
+  li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0px 10px;
+    margin: 15px 10px 10px;
+    border-radius: 20px;
+
+    a { text-decoration: none;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-shadow: 1px 1px 3px black;
+        font-family: 'Patrick Hand', cursive; }
+
+    a:hover { text-transform: capitalize;
+              color: palevioletred; }
+  }
+  
+  .header-container {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color:  rgb(137, 194, 225);
+  
+  }
+  
+  button {
+    border: 0;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #1e5799;
+    border-radius: 10px;
+    margin-left: 15px;
+    &:hover {
+      background-color: lighten(#1e5799, 10%);
+    }
+  }

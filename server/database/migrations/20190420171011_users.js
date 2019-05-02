@@ -1,5 +1,5 @@
 exports.up = function (knex, Promise) {
-    return knex.schema.createTable('user', table => {
+    return knex.schema.createTable('users', table => {
         table.increments()
         table.string('username').unique().notNullable();
         table.timestamp('created_at').defaultTo(knex.fn.now());
@@ -10,7 +10,7 @@ exports.up = function (knex, Promise) {
 
         
     })
-        .createTable('contact', table => {
+        .createTable('contacts', table => {
             table.increments()
             table.string('name');
             table.timestamp('created_at').defaultTo(knex.fn.now());
@@ -21,12 +21,12 @@ exports.up = function (knex, Promise) {
             table.string('home');
             table.string('email');
             table.string('instagram');
-            table.integer('created_by').references('user.id')
+            table.integer('created_by').references('users.id')
         })
 };
 
 exports.down = function (knex, Promise) {
-    return knex.schema.dropTable('contact')
-        .dropTable('user');
+    return knex.schema.dropTable('contacts')
+        .dropTable('users');
 };
 

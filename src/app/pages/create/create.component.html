@@ -1,0 +1,90 @@
+<div>
+    <h1>
+      Create A Contact
+    </h1>
+  </div>
+  
+  <div class="create-container">
+  <form>
+    <div class="input group">
+        <label for="name">
+            NAME: <br /></label>
+        <input type="text" name="name" [(ngModel)]="formData.name" />
+        
+    </div>
+
+    <div class="input-group">
+      <label for="address">
+          ADDRESS: <br/></label>
+      <input type="text" name="address" [(ngModel)]="formData.address" />
+  </div>
+
+  <div class="input-group">
+    <label for="mobile">
+        MOBILE: <br/></label>
+    <input type="text" name="mobile" [(ngModel)]="formData.mobile" />
+</div>
+
+  <div class="input-group">
+  <label for="work">
+      WORK: <br/></label>
+  <input type="text" name="work" [(ngModel)]="formData.work" />
+</div>
+
+  <div class="input-group">
+  <label for="home">
+      HOME: <br/></label>
+  <input type="text" name="home" [(ngModel)]="formData.home" />
+</div>
+
+    <div class="input-group">
+        <label for="email">
+            EMAIL: <br/></label>
+        <input [ngClass]="{'error': emailErrorMessage && email.touched }"type="text" name="email" [(ngModel)]="formData.email" (keyup)="validateEmail()" (blur)="validateEmail()" #email="ngModel" />
+    
+
+        <div class="error" *ngIf="emailErrorMessage && email.touched">
+            {{ emailErrorMessage }}
+        </div>
+    </div>
+
+    <div class="input-group">
+      <label for="instagram">
+          INSTAGRAM: <br/></label>
+      <input type="text" name="instagram" [(ngModel)]="formData.instagram" />
+  </div>
+
+
+    <div class="input-group">
+        <button class="btn" (click)="submit()" [disabled]="emailErrorMessage" routerLink='/contacts' type="button">Create Contact</button>
+    </div>
+
+    <div class="input-group">
+        <button class="btn clear" (click)="clearData()" type="button">CLEAR FORM</button>
+    </div>
+</form>
+</div>
+
+
+
+  <!-- <div class="create-container">
+    <form>
+      <input type="text" name="name" placeholder="Name" >
+  
+      <input type="text" name="address" placeholder="Address">
+    
+      <input type="text" name="mobile" placeholder="Mobile Phone No.">
+
+      <input type="text" name="work" placeholder="Work Phone No.">
+
+      <input type="text" name="home" placeholder="Home Phone No.">
+
+      <input type="text" name="email" placeholder="Email">
+
+      <input type="text" name="instagram" placeholder="Instagram">
+      <br><br><br><br>
+      <button class="btn" (click)="create()">Create</button> -->
+  
+      <!-- {{ loginFormData | json}} -->
+    <!-- </form>
+  </div> -->

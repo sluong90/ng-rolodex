@@ -1,1 +1,17 @@
-<h1>CONTACTS WORK!!</h1>
+<h1>List of Contacts</h1>
+
+    
+    <div class="contactsContainer">
+        <div *ngFor="let contact of contacts" class="contacts">
+          <div id="name">{{contact.name}}</div>
+          <div class="info">
+          <div id="address">Address: <span>{{contact.address}}</span></div>
+          <div id="mobile">Mobile: <span>{{contact.mobile}}</span></div>
+          <div id="work">Work: <span>{{contact.work}}</span></div>
+          <div id="home">Home: <span>{{contact.home}}</span></div>
+          <div id="email">Email: <span>{{contact.email}}</span></div>
+          <div id="instagram">IG: <span>{{contact.instagram}}</span></div>  
+          </div>
+          </div>
+</div>
+  

@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// const userRoutes = require('./routes/users');
+const userRoutes = require('./routes/users');
+const contactRoutes = require('./routes/contacts');
 const decorator = require('./database/decorator');
 
 // data vars
@@ -16,14 +17,31 @@ if (!PORT || !SESSION_SECRET || !REDIS_HOSTNAME) { return process.exit(1); }
 // setup server middleware
 const app = express();
 app.use(bodyParser.json({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // decorate request with database
 app.use(decorator);
 
 // routes
-// app.use('/api', userRoutes);
+app.use('/api', userRoutes, contactRoutes);
 app.get('/api/smoke', (req, res) => {
   res.json({ smoke: 'test' });
+});
+
+
+app.post('/api/login', (req,res) => {
+  const user = req.body;
+  return res.json(user);
+});
+
+app.post('/api/register', (req,res) => {
+  const user = req.body;
+  return res.json(user);
+});
+
+app.post('/api/logout', (req,res) => {
+  return res.json({});
 });
 
 // start server

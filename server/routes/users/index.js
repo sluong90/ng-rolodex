@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const User = require('../.././database/models/User');
+
 
 router.route('/users')
 .get((req, res) => {
+  console.log('HITTTTTTTT')
   return new req.database.User().fetchAll()
     .then((users) => {
       return res.json(users);

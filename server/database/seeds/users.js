@@ -1,9 +1,9 @@
 exports.seed = function (knex, Promise) {
     // Deletes ALL existing entries
   
-    return knex('user').del()
+    return knex('users').del()
       .then(function () {
-        return knex('user').insert([
+        return knex('users').insert([
           { username: 'testuser1', name: 'test1', email: '', address: '' },
           { username: 'testuser2', name: 'test2', email: '', address: '' },
           { username: 'testuser3', name: 'test3', email: '', address: '' }
@@ -12,9 +12,9 @@ exports.seed = function (knex, Promise) {
   
       .then(function () {
         // Inserts seed entries
-        return knex('contact').del()
+        return knex('contacts').del()
           .then(function () {
-            return knex('contact').insert([
+            return knex('contacts').insert([
               {
                 name: 'Bob A.',
                 address: '123 ABC Street',
